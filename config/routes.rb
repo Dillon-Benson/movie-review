@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  devise_for :users
+  
   get 'movies/new' => "movies#new"
 
   get 'movies/show/:id' => "movies#show"
