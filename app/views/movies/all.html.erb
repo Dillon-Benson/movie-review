@@ -3,7 +3,7 @@
 
 <ul>
   <% @movies.each do |movie| %>
-    <h2><%= link_to movie.title, controller: 'movies', action: 'show', id: movie.id %><h2><p><%= movie.reviews.count %> reviews</p>
+    <h2><%= link_to movie.title, controller: 'movies', action: 'show', id: movie.id %><h2><p><%= pluralize(movie.reviews.count, 'review') %></p>
     <p>Release date: <%= movie.release_date %></p><br />
     <p>Rating: <%= movie.rating %></p><br />
     <p>Genre: <%= movie.genre %></p><br />
