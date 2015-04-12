@@ -1,4 +1,6 @@
 class MoviesController < ApplicationController
+  before_action :redirect_unless_admin, :except => [:show, :all]
+
   def new
     @movie = Movie.new
   end
@@ -43,5 +45,13 @@ class MoviesController < ApplicationController
 
   def movie_params
     params.require(:movie).permit!
+  end
+
+  def redirect_unless_admin
+    if user_signed_in?
+      redirect_to controller: :movies, action: :all unless current_user.admin? 
+    else
+      redirect_to controller: :movies, action: :all
+    end
   end
 end
