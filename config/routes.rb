@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'reviews/new/:movie_id' => "reviews#new"
+
+  get 'reviews/edit/:id' => "reviews#edit"
+
+  put 'reviews/:id' => "reviews#update"
+
+  delete 'reviews/:id' => "reviews#delete"
+
+  post 'reviews/:movie_id' => "reviews#create"
+
   devise_for :users
   
   get 'movies/new' => "movies#new"
@@ -11,9 +21,9 @@ Rails.application.routes.draw do
 
   post 'movies' => "movies#create"
 
-  get 'movies/update/:id' => "movies#update"
+  put 'movies/:id' => "movies#update"
 
-  put 'movies' => "movies#destroy"
+  delete 'movies/:id' => "movies#destroy"
 
   root :to => "movies#all"
 
