@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  release_date: 2015-04-11
+  rating: MyString
+  genre: MyString
+  stars: 1
+  votes: 1
+
+two:
+  title: MyString
+  description: MyText
+  release_date: 2015-04-11
+  rating: MyString
+  genre: MyString
+  stars: 1
+  votes: 1

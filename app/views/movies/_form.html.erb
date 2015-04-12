@@ -1,0 +1,24 @@
+<%= form_for @movie do |f| %>
+  <%= f.label :title %>:
+  <%= f.text_field :title %><br />
+
+  <%= f.label :description %>:
+  <%= f.text_area :description, size: "20x30" %><br />
+
+  <%= f.label :release_date %>:
+  <%= f.date_field :release_date, value: "1984-05-12" %><br />
+
+  <%= f.label :rating %>:
+  <%= f.text_field :rating %><br />
+
+  <%= f.label :genre %>:
+  <%= f.text_field :genre %><br />
+
+  <%= f.label :stars %>:
+  <%= f.text_field :stars %><br />
+
+  <%= f.label :votes %>:
+  <%= f.text_field :votes %><br />
+
+  <%= f.submit %>
+<% end %>
