@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  get 'movies/new'
+  get 'movies/new' => "movies#new"
 
-  get 'movies/show'
+  get 'movies/show/:id' => "movies#show"
 
-  get 'movies/all'
+  get 'movies/all' => "movies#all"
 
-  get 'movies/edit'
+  get 'movies/edit/:id' => "movies#edit"
 
-  post 'movies/create', to: 'movies#create', as: 'movies'
+  post 'movies' => "movies#create"
+
+  get 'movies/update/:id' => "movies#update"
+
+  put 'movies' => "movies#destroy"
 
   root :to => "movies#all"
 

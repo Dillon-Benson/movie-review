@@ -4,6 +4,7 @@ class MoviesController < ApplicationController
   end
 
   def show
+    @movie = Movie.find(params[:id])
   end
 
   def all
@@ -11,10 +12,11 @@ class MoviesController < ApplicationController
   end
 
   def edit
+    @movie = Movie.find(params[:id])
   end
 
   def create
-    @movie = Movie.create(movie_params(params))
+    @movie = Movie.create(movie_params)
     if @movie.save
       redirect_to controller: :movies, action: :all
     else
@@ -23,14 +25,23 @@ class MoviesController < ApplicationController
   end
 
   def update
+    @movie = Movie.find(params[:id])
+    @movie.update(movie_params)
+    if @movie.save
+      redirect_to controller :movies, action: :all
+    else
+      render "new"
+    end
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
+    @movie.destroy
   end
 
   private
 
-  def movie_params(params)
+  def movie_params
     params.require(:movie).permit!
   end
 end
