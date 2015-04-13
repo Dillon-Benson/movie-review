@@ -1,8 +1,20 @@
 <h1>Movies#show</h1>
 <p>Find me in app/views/movies/show.html.erb</p>
 
+<%= link_to "Write a review for #{@movie.title}", controller: :reviews, action: :new, movie_id: @movie.id %>
+
 <h2><%= @movie.title %></h2><br />
 <p><%= @movie.release_date %></p><br />
 <p><%= @movie.rating %></p><br />
 <p><%= @movie.genre %></p><br />
 <p><%= @movie.description %></p><br />
+
+<hr>
+
+<h2><%= pluralize(@movie.reviews.count, 'reviews') %></h2><br />
+<% @movie.reviews.each do |review| %>
+  <p><%= review.user.email %> Wrote:</p><br />
+  <p><%= review.content %></p><br />
+  <p><small><%= review.created_at.to_formatted_s(:short) %></small></p><br /><br />
+  <hr>
+<% end %>

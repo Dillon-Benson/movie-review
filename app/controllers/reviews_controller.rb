@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
     @review = Review.create(review_params)
     @movie = Movie.find(params[:movie_id])
     @review.movie = @movie
+    @review.user = current_user
     if @review.save
       redirect_to controller: :movies, action: :all
     else
