@@ -5,7 +5,7 @@
 
 <h2><%= @movie.title %></h2><br /><br />
 User rating: <%= rating_for @movie, "user_rating", star: 5 %><br />
-<%= image_tag @movie.title_picture.url(:medium) %>
+<%= image_tag @movie.title_picture.url(:large) %>
 <p><%= @movie.release_date %></p><br />
 <p><%= @movie.rating %></p><br />
 <p><%= @movie.genre %></p><br />
