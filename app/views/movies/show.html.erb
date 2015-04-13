@@ -4,6 +4,7 @@
 <%= link_to "Write a review for #{@movie.title}", controller: :reviews, action: :new, movie_id: @movie.id %>
 
 <h2><%= @movie.title %></h2><br />
+<%= image_tag @movie.title_picture.url(:medium) %>
 <p><%= @movie.release_date %></p><br />
 <p><%= @movie.rating %></p><br />
 <p><%= @movie.genre %></p><br />
