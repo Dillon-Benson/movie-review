@@ -18,7 +18,7 @@ class MoviesController < ApplicationController
   end
 
   def search
-    @movies = Movie.search(params[:search])
+    @movies = Movie.search(params[:search], page: params[:page], per_page: 1)
   end
 
   def create

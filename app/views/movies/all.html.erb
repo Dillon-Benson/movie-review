@@ -1,7 +1,2 @@
-<h1>Movies#all</h1>
-<p>Find me in app/views/movies/all.html.erb</p>
-
-<ul>
-  <%= render partial: "movie", collection: @movies %>
-  <%= paginate @movies %>
-</ul>
+<%= render partial: "movie", collection: @movies %>
+<%= paginate @movies %>

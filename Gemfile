@@ -38,6 +38,9 @@ gem 'searchkick', '~> 0.8.7'
 # For pagination
 gem 'kaminari', '~> 0.16.3'
 
+# SASS twitter bootstrap
+gem 'bootstrap-sass', '~> 3.3.4.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
