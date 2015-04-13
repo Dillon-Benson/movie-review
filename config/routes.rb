@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   post '/rate' => 'rater#create', :as => 'rate'
+
+  get 'reviews/all' => "reviews#all"
+
   get 'reviews/new/:movie_id' => "reviews#new"
 
   get 'reviews/edit/:id' => "reviews#edit"

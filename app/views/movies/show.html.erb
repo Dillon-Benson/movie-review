@@ -13,10 +13,13 @@ User rating: <%= rating_for @movie, "user_rating", star: 5 %><br />
 
 <hr>
 
-<h2><%= pluralize(@movie.reviews.count, 'reviews') %></h2><br />
+<h2 id="reviews"><%= pluralize(@movie.reviews.count, 'reviews') %></h2><br />
 <% @movie.reviews.each do |review| %>
   <p><%= review.user.email %> Wrote:</p><br />
   <p><%= review.content %></p><br />
   <p><small><%= review.created_at.to_formatted_s(:short) %></small></p><br /><br />
+  <% if current_user.id == review.user_id %>
+    <%= link_to 'Edit review', controller: :reviews, action: :edit, id: review.id %>
+  <% end %>
   <hr>
 <% end %>

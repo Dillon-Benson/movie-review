@@ -35,6 +35,9 @@ gem 'ratyrate', '~> 1.2.2.alpha'
 # For searching
 gem 'searchkick', '~> 0.8.7'
 
+# For pagination
+gem 'kaminari', '~> 0.16.3'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

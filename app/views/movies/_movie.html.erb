@@ -1,4 +1,5 @@
-<h2><%= link_to movie.title, controller: 'movies', action: 'show', id: movie.id %><h2><p><%= pluralize(movie.reviews.count, 'review') %></p></h2>
+<h2><%= link_to movie.title, controller: 'movies', action: 'show', id: movie.id %>
+<h2><%= link_to pluralize(movie.reviews.count, 'review'), controller: 'movies', action: 'show', id: movie.id, anchor: 'reviews' %></h2>
 <%= image_tag movie.title_picture.url(:medium) %>
 <p>Release date: <%= movie.release_date %></p><br />
 <p>Rating: <%= movie.rating %></p><br />

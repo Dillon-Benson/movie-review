@@ -5,8 +5,13 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def all
+    @reviews = Review.where(user_id: current_user.id)
+  end
+
   def edit
     @review = Review.find(params[:id])
+    redirect_to controller: 'movies', action: 'all' unless @review.user_id == current_user.id
   end
 
   def create
@@ -14,7 +19,7 @@ class ReviewsController < ApplicationController
     @movie = Movie.find(params[:movie_id])
     @review.movie = @movie
     @review.user = current_user
-    if @review.save
+    if @review.save && @movie.save
       redirect_to controller: :movies, action: :all
     else
       render "new"
@@ -23,6 +28,7 @@ class ReviewsController < ApplicationController
 
   def update
     @review = Review.find(params[:id])
+    redirect_to controller: 'movies', action: 'all' unless @review.user_id == current_user.id
     @review.update(review_params)
     if @review.save
       redirect_to controller: :movies, action: :all
