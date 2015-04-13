@@ -29,6 +29,9 @@ gem 'devise', '~> 3.4.1'
 # For image uploads
 gem 'paperclip', '~> 4.2.1'
 
+# For rating movies
+gem 'ratyrate', '~> 1.2.2.alpha'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

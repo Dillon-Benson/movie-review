@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :reviews, dependent: :destroy
 
+  ratyrate_rater
+
   def admin?
     self.admin
   end
