@@ -17,6 +17,10 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
   end
 
+  def search
+    @movies = Movie.search(params[:search])
+  end
+
   def create
     @movie = Movie.create(movie_params)
     if @movie.save

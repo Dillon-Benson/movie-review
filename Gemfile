@@ -32,6 +32,9 @@ gem 'paperclip', '~> 4.2.1'
 # For rating movies
 gem 'ratyrate', '~> 1.2.2.alpha'
 
+# For searching
+gem 'searchkick', '~> 0.8.7'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

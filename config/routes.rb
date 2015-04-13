@@ -26,6 +26,8 @@ Rails.application.routes.draw do
 
   delete 'movies/:id' => "movies#destroy"
 
+  get 'movies/search' => "movies#search"
+
   root :to => "movies#all"
 
   # The priority is based upon order of creation: first created -> highest priority.

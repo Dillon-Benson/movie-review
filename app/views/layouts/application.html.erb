@@ -17,6 +17,10 @@
     <%= link_to 'Sign in', new_user_session_path %>
     <%= link_to 'Sign up', new_user_registration_path %>
   <% end %>
+  <%= form_tag movies_search_path, method: :get do %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", name: nil %>
+  <% end %>
 
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
