@@ -1,4 +1,5 @@
 <% @reviews.each do |review| %>
   <h2><%= review.movie.title %></h2><br />
   <p><%= review.content %></p><br />
+  <%= link_to 'Edit review', controller: :reviews, action: :edit, id: review.id %>
 <% end %>

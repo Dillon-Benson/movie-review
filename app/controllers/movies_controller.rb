@@ -10,7 +10,7 @@ class MoviesController < ApplicationController
   end
 
   def all
-    @movies = Movie.all
+    @movies = Movie.all.page(params[:page]).per(12)
   end
 
   def edit
