@@ -1,16 +1,23 @@
-<% if user_signed_in? %>
-  <%= link_to "Write a review for #{@movie.title}", controller: :reviews, action: :new, movie_id: @movie.id %>
-<% else %>
-  <p><h3><%= link_to 'Sign in', new_user_session_path %></h3> to write a review</p>
-<% end %>
-
 <h2><%= @movie.title %></h2><br /><br />
 User rating: <%= rating_for @movie, "user_rating", star: 5 %><br />
-<%= image_tag @movie.title_picture.url(:large) %>
-<p><%= @movie.release_date %></p><br />
-<p><%= @movie.rating %></p><br />
-<p><%= @movie.genre %></p><br />
-<p><%= @movie.description %></p><br />
+<div class="row">
+  <div class="col-md-5">
+    <%= image_tag @movie.title_picture.url(:large) %>
+  </div>
+  <div class="col-md-3">
+    <h4><p><%= @movie.release_date %></p></h4><br />
+    <h4><p><%= @movie.rating %></p></h4><br />
+    <h4><p><%= @movie.genre %></p></h4><br /><br />
+    <% if user_signed_in? %>
+      <%= link_to "Write a review for #{@movie.title}", controller: :reviews, action: :new, movie_id: @movie.id %>
+    <% else %>
+      <p><h3><%= link_to 'Sign in', new_user_session_path %></h3> to write a review</p>
+    <% end %>
+  </div>
+  <div class="col-md-4">
+    <h3><p><%= @movie.description %></p></h3><br />
+  </div>
+</div>
 
 <hr>
 

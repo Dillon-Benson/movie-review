@@ -15,12 +15,17 @@ class ReviewsController < ApplicationController
   end
 
   def create
+    # TODO 3443: Do not allow more than 1 review for a movie per user
     @review = Review.create(review_params)
     @movie = Movie.find(params[:movie_id])
     @review.movie = @movie
     @review.user = current_user
-    if @review.save && @movie.save
-      redirect_to controller: :movies, action: :all
+    if @movie.save
+      if @review.save
+        redirect_to controller: :movies, action: :all
+      else
+        render "new"
+      end
     else
       render "new"
     end
