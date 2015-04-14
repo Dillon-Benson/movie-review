@@ -1,7 +1,8 @@
-<h1>Movies#show</h1>
-<p>Find me in app/views/movies/show.html.erb</p>
-
-<%= link_to "Write a review for #{@movie.title}", controller: :reviews, action: :new, movie_id: @movie.id %>
+<% if user_signed_in? %>
+  <%= link_to "Write a review for #{@movie.title}", controller: :reviews, action: :new, movie_id: @movie.id %>
+<% else %>
+  <p><h3><%= link_to 'Sign in', new_user_session_path %></h3> to write a review</p>
+<% end %>
 
 <h2><%= @movie.title %></h2><br /><br />
 User rating: <%= rating_for @movie, "user_rating", star: 5 %><br />
@@ -18,8 +19,10 @@ User rating: <%= rating_for @movie, "user_rating", star: 5 %><br />
   <p><%= review.user.email %> Wrote:</p><br />
   <p><%= review.content %></p><br />
   <p><small><%= review.created_at.to_formatted_s(:short) %></small></p><br /><br />
-  <% if current_user.id == review.user_id %>
-    <%= link_to 'Edit review', controller: :reviews, action: :edit, id: review.id %>
+  <% if user_signed_in? %>
+    <% if current_user.id == review.user_id %>
+      <%= link_to 'Edit review', controller: :reviews, action: :edit, id: review.id %>
+    <% end %>
   <% end %>
   <hr>
 <% end %>

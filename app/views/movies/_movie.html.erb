@@ -1,10 +1,11 @@
-<h2><%= link_to movie.title, controller: 'movies', action: 'show', id: movie.id %>
-<h2><%= link_to pluralize(movie.reviews.count, 'review'), controller: 'movies', action: 'show', id: movie.id, anchor: 'reviews' %></h2>
-<%= image_tag movie.title_picture.url(:medium) %>
-<p>Release date: <%= movie.release_date %></p><br />
-<p>Rating: <%= movie.rating %></p><br />
-<p>Genre: <%= movie.genre %></p><br />
-<% if user_signed_in? %>
-  <%= link_to "Write a review for #{movie.title}", controller: :reviews, action: :new, movie_id: movie.id %>
-<% end %>
-<hr>
+<div class="col-md-4">
+  <h2><%= link_to movie.title, controller: 'movies', action: 'show', id: movie.id %>
+  <h2><%= link_to pluralize(movie.reviews.count, 'review'), controller: 'movies', action: 'show', id: movie.id, anchor: 'reviews' %></h2>
+  <a href="<%= url_for(controller: :movies, action: :show, id: movie.id) %>"><%= image_tag movie.title_picture.url(:medium) %></a>
+  <p><b>Release date: <%= movie.release_date %></b></p><br />
+  <p><b>Rating: <%= movie.rating %></b></p><br />
+  <p><b>Genre: <%= movie.genre %></b></p><br />
+  <% if user_signed_in? %>
+    <%= link_to "Write a review for #{movie.title}", controller: :reviews, action: :new, movie_id: movie.id %>
+  <% end %>
+</div>
